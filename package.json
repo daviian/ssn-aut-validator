@@ -20,13 +20,11 @@
     "url": "git+https://github.com/daviian/ssn-aut-validator.git"
   },
   "scripts": {
-    "changelog": "github_changelog_generator --no-issues --header-label='# Changelog' --future-release=v$npm_config_future_release && sed -i '' -e :a -e '$d;N;2,4ba' -e 'P;D' CHANGELOG.md",
     "coverage": "babel-node node_modules/.bin/isparta cover --report html _mocha -- $npm_package_options_mocha",
     "lint": "eslint src test",
     "prepublishOnly": "npm run transpile",
     "test": "mocha $npm_package_options_mocha",
-    "transpile": "rm -rf dist/* && babel src --out-dir dist/src",
-    "version": "npm run changelog --future-release=$npm_package_version && npm run transpile && git add -A CHANGELOG.md dist"
+    "transpile": "rm -rf dist/* && babel src --out-dir dist/src"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
