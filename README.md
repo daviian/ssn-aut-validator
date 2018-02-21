@@ -6,11 +6,14 @@ Validate an AUT Social Security Number (SSN)
 _TODO_
 
 ## Usage
-### `isValid(value)`
-This method validates if the given value is a valid `Social Security Number`.
+
+`import SSNValidator from ssn-aut-validator;`
+
+### `SSNValidator.validate(value)`
+This method validates if the given value is a valid `Austrian Social Security Number`.
 
 #### Arguments
-1. `value` _(*)_: The value to validate.
+1. `value` _(string)_: The value to validate.
 
 #### Returns
 _(boolean)_:  Returns whether the input value is a valid SSN or not.
@@ -18,11 +21,14 @@ _(boolean)_:  Returns whether the input value is a valid SSN or not.
 #### Example
 
 ```js
-isValid({});
+SSNValidator.validate('');
 // => false
 
-isValid('1234567898');
+SSNValidator.validate('12345678');
 // => false
+
+SSNValidator.validate('3968280689');
+// => true
 ```
 
 ## Tests

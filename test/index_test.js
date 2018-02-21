@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-import isValid from '../src';
+import SSNValidator from '../src';
 
 /**
  * `Social Security Number` samples.
@@ -17,11 +17,11 @@ const numbers = {
 describe('SsnAUTValidator', () => {
   describe('isValid()', () => {
     it('should return `false` if number is invalid', () => {
-      numbers.invalid.forEach(number => isValid(number).should.be.false());
+      numbers.invalid.forEach(number => SSNValidator.validate(number).should.be.false());
     });
 
     it('should return `true` if number is valid', () => {
-      numbers.valid.forEach(number => isValid(number).should.be.true());
+      numbers.valid.forEach(number => SSNValidator.validate(number).should.be.true());
     });
   });
 });
