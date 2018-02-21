@@ -1,0 +1,49 @@
+{
+  "name": "ssn-aut-validator",
+  "version": "1.0.0",
+  "description": "Validate an AUT Social Security Number (SSN)",
+  "keywords": [
+    "SSN",
+    "SVNR",
+    "AUT",
+    "validator"
+  ],
+  "homepage": "https://github.com/daviian/ssn-aut-validator#readme",
+  "bugs": {
+    "url": "https://github.com/daviian/ssn-aut-validator/issues"
+  },
+  "license": "MIT",
+  "author": "David Schneiderbauer <dschneiderbauer@gmail.com>",
+  "main": "dist/src",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daviian/ssn-aut-validator.git"
+  },
+  "scripts": {
+    "changelog": "github_changelog_generator --no-issues --header-label='# Changelog' --future-release=v$npm_config_future_release && sed -i '' -e :a -e '$d;N;2,4ba' -e 'P;D' CHANGELOG.md",
+    "coverage": "babel-node node_modules/.bin/isparta cover --report html _mocha -- $npm_package_options_mocha",
+    "lint": "eslint src test",
+    "prepublishOnly": "npm run transpile",
+    "test": "mocha $npm_package_options_mocha",
+    "transpile": "rm -rf dist/* && babel src --out-dir dist/src",
+    "version": "npm run changelog --future-release=$npm_package_version && npm run transpile && git add -A CHANGELOG.md dist"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "eslint": "^4.18.1",
+    "eslint-plugin-babel": "^4.1.2",
+    "isparta": "^4.0.0",
+    "mocha": "^5.0.1",
+    "pre-commit": "^1.2.2",
+    "should": "^13.2.1"
+  },
+  "options": {
+    "mocha": "--require babel-register --recursive --require should"
+  },
+  "pre-commit": [
+    "lint"
+  ]
+}
