@@ -7,7 +7,7 @@ function calculateCheckdigit(ssn) {
 }
 
 export default function isValid(ssn) {
-  if (ssn.length !== 10) {
+  if (!ssn || ssn.length !== 10) {
     return false;
   }
 
