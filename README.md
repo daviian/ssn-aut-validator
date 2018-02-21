@@ -3,7 +3,7 @@ Validate an AUT Social Security Number (SSN)
 
 ## Installation
 
-_TODO_
+`npm install --save ssn-aut-validator`
 
 ## Usage
 
